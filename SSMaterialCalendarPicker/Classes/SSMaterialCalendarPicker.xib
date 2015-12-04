@@ -244,7 +244,7 @@
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                             <color key="tintColor" red="0.81568627449999997" green="0.086274509799999996" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="OK">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.81568627449999997" green="0.086274509799999996" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="shouldChangeColorOnClick" value="YES"/>
