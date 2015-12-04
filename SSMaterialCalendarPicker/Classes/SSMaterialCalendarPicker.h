@@ -15,6 +15,7 @@
 @interface SSMaterialCalendarPicker : UIView <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, SSCalendarCollectionViewCellDelegate>
 
 #pragma mark Customization:
+
 @property (strong, nonatomic) NSLocale *forceLocale;
 @property (strong, nonatomic) UIColor *primaryColor;
 @property (strong, nonatomic) UIColor *secondaryColor;
@@ -25,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *okButton;
 
 #pragma mark Interaction Properties:
+
 @property (strong, nonatomic) id<SSMaterialCalendarPickerDelegate> delegate;
 @property (strong, nonatomic) NSArray *disabledDates;
 @property (strong, nonatomic) NSDate *startDate;
@@ -32,8 +34,17 @@
 @property (nonatomic) BOOL singleDateMode;
 
 #pragma mark Show/Hide:
-+ (void)showCalendarOn:(UIView *)view withDelegate:(id<SSMaterialCalendarPickerDelegate>)delegate;
-+ (SSMaterialCalendarPicker *)initCalendarOn:(UIView *)view withDelegate:(id<SSMaterialCalendarPickerDelegate>)delegate;
+
+- (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
+
++ (void)showCalendarOn:(UIView *)view
+            daysNumber:(NSInteger)daysNumber // default is 364
+          withDelegate:(id<SSMaterialCalendarPickerDelegate>)delegate;
+
++ (SSMaterialCalendarPicker *)initCalendarOn:(UIView *)view
+                                  daysNumber:(NSInteger)daysNumber //default is 364
+                                withDelegate:(id<SSMaterialCalendarPickerDelegate>)delegate;
+
 - (void)showAnimated;
 - (void)closeAnimated;
 - (void)resetDates;

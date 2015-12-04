@@ -114,13 +114,15 @@
 }
 
 - (void)disableCalendarCell:(BOOL)disabled {
-    if (!self.headerMode) {
+    if (!self.headerMode && disabled) {
         [self setIsDisabled:disabled];
-        if (disabled) [self selectCalendarCell:NO];
-        [self setUserInteractionEnabled:NO];
-        [UIView animateWithDuration:0.2f animations:^{
-            [self setAlpha:disabled?0.2f:1.0f];
-        }];
+        if (disabled) {
+            [self selectCalendarCell:NO];
+            [self setUserInteractionEnabled:NO];
+            [UIView animateWithDuration:0.2f animations:^{
+                [self setAlpha:disabled?0.2f:1.0f];
+            }];
+        }
     }
 }
 

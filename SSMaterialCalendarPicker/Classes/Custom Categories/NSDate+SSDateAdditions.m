@@ -69,9 +69,17 @@
     } else return 0;
 }
 
-+ (int)daysFromLastSunday {
-    int weekday = (int)[[NSCalendar currentCalendar] component:NSCalendarUnitWeekday fromDate:[NSDate date]];
++ (NSInteger)daysFromLastSunday {
+    NSInteger weekday = (NSInteger)[[NSCalendar currentCalendar] component:NSCalendarUnitWeekday fromDate:[NSDate date]];
     return --weekday;
+}
+
++ (NSInteger)daysFromLastSundayWithAddition:(NSInteger)daysAddition {
+    NSInteger days = [[self class] daysFromLastSunday];
+    if (daysAddition > 0) {
+        days += (daysAddition / 2) ;
+    }
+    return days;
 }
 
 - (NSDate *)addMonths:(NSInteger)months {

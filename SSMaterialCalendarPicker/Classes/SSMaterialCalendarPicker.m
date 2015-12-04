@@ -21,6 +21,9 @@
 @interface SSMaterialCalendarPicker ()
 
 #pragma mark - Private Outlets
+
+@property (nonatomic, assign, readwrite) NSInteger daysNumber;
+
 #pragma mark Customizable
 @property (weak, nonatomic) IBOutlet UILabel *calendarTitleLabel;
 @property (weak, nonatomic) IBOutlet UIView *statusBarHeader;
@@ -50,19 +53,23 @@
 
 @end
 
-#pragma mark -
-#pragma mark -
+static const NSInteger kDefaultDaysInterval = 364; // the number of days in a year 
+
 @implementation SSMaterialCalendarPicker {
-#pragma mark - Control Variables
     NSMutableArray *dates;
     NSDate *selectedMonth;
     BOOL runningScrollAnimation;
     NSIndexPath *blinkIndexPath;
 }
 
+@synthesize daysNumber = _daysNumber;
+
 #pragma mark - Show Calendar
-+ (void)showCalendarOn:(UIView *)view withDelegate:(id<SSMaterialCalendarPickerDelegate>)delegate {
-    SSMaterialCalendarPicker *picker = [[self alloc] initWithFrame:view.frame];
++ (void)showCalendarOn:(UIView *)view
+            daysNumber:(NSInteger)daysNumber
+          withDelegate:(id<SSMaterialCalendarPickerDelegate>)delegate {
+    SSMaterialCalendarPicker *picker = [[self alloc] initWithFrame:view.frame
+                                                        daysNumber:daysNumber];
     [picker.headerCollectionViewHeight setConstant:CGRectGetWidth(view.frame)/7.0001f];
     [picker setDelegate:delegate];
     [view addSubview:picker];
@@ -70,8 +77,11 @@
     [picker showAnimated];
 }
 
-+ (SSMaterialCalendarPicker *)initCalendarOn:(UIView *)view withDelegate:(id<SSMaterialCalendarPickerDelegate>)delegate {
-    SSMaterialCalendarPicker *picker = [[self alloc] initWithFrame:view.frame];
++ (SSMaterialCalendarPicker *)initCalendarOn:(UIView *)view
+                                  daysNumber:(NSInteger)daysNumber
+                                withDelegate:(id<SSMaterialCalendarPickerDelegate>)delegate {
+    SSMaterialCalendarPicker *picker = [[self alloc] initWithFrame:view.frame
+                                                        daysNumber:daysNumber];
     [picker.headerCollectionViewHeight setConstant:CGRectGetWidth(view.frame)/7];
     [picker setDelegate:delegate];
     [view addSubview:picker];
@@ -79,13 +89,21 @@
 }
 
 #pragma mark - Initialization
-- (id)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame daysNumber:(NSInteger)daysNumber {
     self = [super initWithFrame:frame];
     if (self) {
         UINib *cellNib = [UINib nibWithNibName:kCalendarCellIdentifier bundle:nil];
         self = [[[NSBundle mainBundle] loadNibNamed:kCalendarPickerIdentifier
                                               owner:self options:nil] objectAtIndex:0];
         [self setFrame:frame];
+        
+        // Set days Number
+        if (daysNumber > 0) {
+            _daysNumber = daysNumber;
+        } else {
+            _daysNumber = kDefaultDaysInterval;
+        }
+        
         [self initializeDates];
         [self addCalendarMask];
         [self.calendarCollectionView setAllowsMultipleSelection:YES];
@@ -104,11 +122,12 @@
 - (void)initializeDates {
     [self setMonthFromDate:[NSDate date].firstDayOfTheMonth.defaultTime];
     if (self.disabledDates == nil) self.disabledDates = [[NSArray alloc] init];
-    int lastSunday = [NSDate daysFromLastSunday];
+    NSInteger lastSunday = [NSDate daysFromLastSundayWithAddition:self.daysNumber];
     dates = [[NSMutableArray alloc] init];
-    for (int i = -lastSunday; i < 364-lastSunday; i++) {
+    for (NSInteger i = -lastSunday; i < self.daysNumber  - lastSunday; i++) {
         [dates addObject:[NSDate daysFromNow:i].defaultTime];
-    } self.startDate = self.startDate.defaultTime;
+    }
+    self.startDate = self.startDate.defaultTime;
     self.endDate = self.endDate.defaultTime;
 }
 
@@ -233,8 +252,7 @@
     [calendarCell setDelegate:self];
     [calendarCell calendarCellSetup];
     [calendarCell fastSelectCalendarCell:[self shouldSelect:calendarCell]];
-    [calendarCell disableCalendarCell:[self shouldDisable:calendarCell]];
-    
+    [calendarCell disableCalendarCell:[self isDateDisabled:[dates objectAtIndex:indexPath.row]]];
     if (blinkIndexPath != nil && indexPath.row == blinkIndexPath.row) {
         [calendarCell blink];
         blinkIndexPath = nil;
@@ -385,10 +403,15 @@
     else return ([calendarCell.cellDate isEqualToDate:self.startDate] || [calendarCell.cellDate isEqualToDate:self.endDate]);
 }
 
-- (BOOL)shouldDisable:(SSCalendarCollectionViewCell *)calendarCell {
-    if ([[NSDate date].defaultTime compare:calendarCell.cellDate] == NSOrderedDescending) return YES;
-    if ([self isDateDisabled:calendarCell.cellDate]) return YES;
-    return NO;
+- (NSIndexPath * _Nonnull)indexPathForToday {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    for (NSDate *date in dates) {
+        if ([[NSDate date].defaultTime compare:date] == NSOrderedSame) {
+            NSInteger indexOfDate = [dates indexOfObject:date];
+            indexPath = [NSIndexPath indexPathForRow:indexOfDate inSection:0];
+        }
+    }
+    return indexPath;
 }
 
 - (void)checkReverse {
@@ -402,9 +425,11 @@
 
 - (BOOL)isDateDisabled:(NSDate *)date {
     BOOL disabled = NO;
-    for (NSDate *disabledDate in self.disabledDates) {
-        if ([disabledDate.defaultTime compare:date.defaultTime] == NSOrderedSame) disabled = YES;
-    } return disabled;
+    // We don't need disabeled dates
+//    for (NSDate *disabledDate in self.disabledDates) {
+//        if ([disabledDate.defaultTime compare:date.defaultTime] == NSOrderedSame) disabled = YES;
+//    }
+    return disabled;
 }
 
 - (void)checkDisabledRangeWithBackupStartDate:(NSDate *)startBackup andEndDate:(NSDate *)endBackup {
@@ -422,7 +447,11 @@
     NSArray *visibleCells = [self.calendarCollectionView visibleCells];
     for (SSCalendarCollectionViewCell *calendarCell in visibleCells) {
         [calendarCell selectCalendarCell:[self shouldSelect:calendarCell]];
-        [calendarCell disableCalendarCell:[self shouldDisable:calendarCell]];
+        [calendarCell disableCalendarCell:NO];
+    }
+    // Scroll to today
+    if (!self.startDate) {
+        [self.calendarCollectionView scrollToItemAtIndexPath:[self indexPathForToday] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
     }
 }
 

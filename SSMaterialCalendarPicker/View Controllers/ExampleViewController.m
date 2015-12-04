@@ -21,7 +21,7 @@
 }
 
 - (void)initDatePicker {
-    datePicker = [SSMaterialCalendarPicker initCalendarOn:[UIApplication sharedApplication].keyWindow withDelegate:self];
+    datePicker = [SSMaterialCalendarPicker initCalendarOn:[UIApplication sharedApplication].keyWindow daysNumber:798 withDelegate:self];
     datePicker.forceLocale = [NSLocale localeWithLocaleIdentifier:@"pt_BR"];
     datePicker.disabledIntervalWarning = @"Anfitrião indisponível neste período!";
     datePicker.calendarTitle = @"Selecione um Período";
