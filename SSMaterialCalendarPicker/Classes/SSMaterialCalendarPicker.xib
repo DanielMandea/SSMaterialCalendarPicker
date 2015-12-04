@@ -230,7 +230,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select an Interval" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MZs-fU-9vy">
                             <rect key="frame" x="16" y="36" width="484" height="20"/>
                             <animations/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -242,6 +242,7 @@
                                 <constraint firstAttribute="height" constant="44" id="cTG-5l-GbP"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                            <color key="tintColor" red="0.81568627449999997" green="0.086274509799999996" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="OK">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
