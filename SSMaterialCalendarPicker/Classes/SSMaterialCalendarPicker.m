@@ -218,6 +218,14 @@ static const NSInteger kDefaultDaysInterval = 364; // the number of days in a ye
     [self closeAnimated];
 }
 
+- (IBAction)clearFilter:(UIButton *)sender {
+    [self resetDates];
+    if ([self.delegate respondsToSelector:@selector(rangeSelectedWithStartDate:andEndDate:)]) {
+        [self.delegate rangeSelectedWithStartDate:self.startDate andEndDate:self.endDate];
+    }
+    [self closeAnimated];
+}
+
 #pragma mark - UICollectionView Delegate & DataSource
 - (void)scrollViewDidScroll:(nonnull UIScrollView *)scrollView {
     float scrollViewHeight = scrollView.frame.size.height;

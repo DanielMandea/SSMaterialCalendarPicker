@@ -57,6 +57,6 @@
 #pragma mark - Protocol Definition
 @protocol SSMaterialCalendarPickerDelegate <NSObject>
 
-- (void)rangeSelectedWithStartDate:(NSDate *)startDate andEndDate:(NSDate *)endDate;
+- (void)rangeSelectedWithStartDate:(NSDate * _Nullable)startDate andEndDate:(NSDate *_Nullable)endDate;
 
 @end
