@@ -219,40 +219,33 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUS-e3-7G8">
+                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUS-e3-7G8">
                             <rect key="frame" x="548" y="24" width="44" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="44" id="P2F-wO-hJ4"/>
                                 <constraint firstAttribute="height" constant="44" id="cTG-5l-GbP"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                             <color key="tintColor" red="0.81568627449999997" green="0.086274509799999996" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="OK">
                                 <color key="titleColor" red="0.81568627449999997" green="0.086274509799999996" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="shouldChangeColorOnClick" value="YES"/>
-                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="okClicked" destination="pJU-z3-znu" eventType="touchUpInside" id="k2q-RN-nH6"/>
                             </connections>
                         </button>
-                        <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ANg-lK-pvh" userLabel="Clear">
-                            <rect key="frame" x="8" y="24" width="82" height="44"/>
+                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ANg-lK-pvh" userLabel="Clear">
+                            <rect key="frame" x="8" y="24" width="73" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="S7h-78-HMS"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                             <color key="tintColor" red="0.81568627449999997" green="0.086274509799999996" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="Clear filter">
                                 <color key="titleColor" red="0.81568627449999997" green="0.086274509799999996" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="shouldChangeColorOnClick" value="YES"/>
-                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="clearFilter:" destination="pJU-z3-znu" eventType="touchUpInside" id="bnh-Tt-cCY"/>
-                                <action selector="okClicked" destination="pJU-z3-znu" eventType="touchUpInside" id="Ps1-3u-FVr"/>
                             </connections>
                         </button>
                     </subviews>
