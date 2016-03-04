@@ -158,17 +158,38 @@
                                 <constraint firstAttribute="width" constant="80" id="aN6-7T-b2p"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="tintColor" red="0.6705882352941176" green="0.070588235294117646" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                             <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="16" maxY="0.0"/>
-                            <state key="normal" title="OK"/>
+                            <state key="normal" title="OK">
+                                <color key="titleColor" red="0.6705882353" green="0.070588235289999995" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
                             <connections>
                                 <action selector="okClicked" destination="pJU-z3-znu" eventType="touchUpInside" id="2A5-bo-Bw9"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Row-15-Hqx">
+                            <rect key="frame" x="10" y="311" width="80" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="Jx6-7P-8rd"/>
+                                <constraint firstAttribute="width" constant="80" id="jnc-g9-sSf"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="tintColor" red="0.6705882353" green="0.070588235289999995" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="16" maxY="0.0"/>
+                            <state key="normal" title="Clear Selection">
+                                <color key="titleColor" red="0.6705882353" green="0.070588235289999995" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="okClicked" destination="pJU-z3-znu" eventType="touchUpInside" id="iI8-QG-Gu4"/>
                             </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="Row-15-Hqx" firstAttribute="leading" secondItem="gJy-VB-qxI" secondAttribute="leading" constant="10" id="0En-1G-8Yx"/>
                         <constraint firstItem="Ne5-PN-Y6Y" firstAttribute="top" secondItem="zXt-9Z-pYt" secondAttribute="bottom" constant="4" id="1vY-vr-X94"/>
                         <constraint firstAttribute="bottom" secondItem="cEw-qJ-Uez" secondAttribute="bottom" constant="16" id="4jl-ZZ-sla"/>
+                        <constraint firstItem="Row-15-Hqx" firstAttribute="centerY" secondItem="cEw-qJ-Uez" secondAttribute="centerY" id="5Rx-yk-5bq"/>
                         <constraint firstItem="zXt-9Z-pYt" firstAttribute="leading" secondItem="gJy-VB-qxI" secondAttribute="leading" constant="16" id="FEa-d1-HG3"/>
                         <constraint firstAttribute="trailing" secondItem="zXt-9Z-pYt" secondAttribute="trailing" constant="16" id="Fwe-dl-4gk"/>
                         <constraint firstItem="Ne5-PN-Y6Y" firstAttribute="leading" secondItem="gJy-VB-qxI" secondAttribute="leading" constant="16" id="Ldq-6F-evM"/>
@@ -234,28 +255,12 @@
                                 <action selector="okClicked" destination="pJU-z3-znu" eventType="touchUpInside" id="k2q-RN-nH6"/>
                             </connections>
                         </button>
-                        <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ANg-lK-pvh" userLabel="Clear">
-                            <rect key="frame" x="8" y="24" width="73" height="44"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="44" id="S7h-78-HMS"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                            <color key="tintColor" red="0.81568627449999997" green="0.086274509799999996" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="Clear filter">
-                                <color key="titleColor" red="0.81568627449999997" green="0.086274509799999996" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="clearFilter:" destination="pJU-z3-znu" eventType="touchUpInside" id="bnh-Tt-cCY"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.52434456348419189" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="ANg-lK-pvh" firstAttribute="leading" secondItem="lsM-Pc-xQm" secondAttribute="leading" constant="8" id="4Wy-E7-Apy"/>
                         <constraint firstAttribute="bottom" secondItem="MZs-fU-9vy" secondAttribute="bottom" constant="16" id="81r-1A-Yzn"/>
                         <constraint firstItem="XUS-e3-7G8" firstAttribute="leading" secondItem="MZs-fU-9vy" secondAttribute="trailing" constant="48" id="Mus-qG-bQW"/>
                         <constraint firstItem="suf-Nq-L2F" firstAttribute="top" secondItem="lsM-Pc-xQm" secondAttribute="top" id="NhE-UX-QVk"/>
-                        <constraint firstItem="ANg-lK-pvh" firstAttribute="centerY" secondItem="XUS-e3-7G8" secondAttribute="centerY" id="OwC-Oy-ZVy"/>
                         <constraint firstItem="suf-Nq-L2F" firstAttribute="leading" secondItem="lsM-Pc-xQm" secondAttribute="leading" id="Pe4-Qs-bkg"/>
                         <constraint firstItem="MZs-fU-9vy" firstAttribute="top" secondItem="suf-Nq-L2F" secondAttribute="bottom" constant="16" id="VvN-st-QYU"/>
                         <constraint firstAttribute="trailing" secondItem="XUS-e3-7G8" secondAttribute="trailing" constant="8" id="YZC-DX-f5L"/>
@@ -299,7 +304,7 @@
                 <outlet property="calendarHeader" destination="lsM-Pc-xQm" id="2fB-cc-xiD"/>
                 <outlet property="calendarHeaderTopDistance" destination="L67-Ye-PCF" id="8uj-5q-NHd"/>
                 <outlet property="calendarTitleLabel" destination="MZs-fU-9vy" id="285-09-Fya"/>
-                <outlet property="clearButton" destination="ANg-lK-pvh" id="4Vc-r9-sq7"/>
+                <outlet property="clearButton" destination="Row-15-Hqx" id="ACf-UL-e3P"/>
                 <outlet property="downArrow" destination="LGZ-Sa-reH" id="06l-eG-1JG"/>
                 <outlet property="headerCollectionView" destination="PIm-Mg-AAY" id="id3-Zo-isf"/>
                 <outlet property="headerCollectionViewHeight" destination="3iK-bD-Fup" id="IdF-ux-qjn"/>
