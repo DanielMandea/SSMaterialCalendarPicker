@@ -161,6 +161,8 @@ static const NSInteger kDefaultDaysInterval = 364; // the number of days in a ye
     [self.calendarHeader setBackgroundColor:_primaryColor];
     [self.upArrow setTitleColor:_primaryColor forState:UIControlStateNormal];
     [self.downArrow setTitleColor:_primaryColor forState:UIControlStateNormal];
+    self.okButton.tintColor = self.primaryColor;
+    self.clearButton.tintColor = self.primaryColor;
 }
 
 - (void)setSecondaryColor:(UIColor *)newSecondaryColor {

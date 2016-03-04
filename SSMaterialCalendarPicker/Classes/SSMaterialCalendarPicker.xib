@@ -152,41 +152,31 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEw-qJ-Uez">
-                            <rect key="frame" x="504" y="311" width="80" height="24"/>
+                            <rect key="frame" x="545" y="311" width="39" height="24"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="24" id="OPe-dF-Hrx"/>
-                                <constraint firstAttribute="width" constant="80" id="aN6-7T-b2p"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <color key="tintColor" red="0.6705882352941176" green="0.070588235294117646" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                             <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="16" maxY="0.0"/>
-                            <state key="normal" title="OK">
-                                <color key="titleColor" red="0.6705882353" green="0.070588235289999995" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
+                            <state key="normal" title="OK"/>
                             <connections>
                                 <action selector="okClicked" destination="pJU-z3-znu" eventType="touchUpInside" id="2A5-bo-Bw9"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Row-15-Hqx">
-                            <rect key="frame" x="10" y="311" width="80" height="24"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="24" id="Jx6-7P-8rd"/>
-                                <constraint firstAttribute="width" constant="80" id="jnc-g9-sSf"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <color key="tintColor" red="0.6705882353" green="0.070588235289999995" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <rect key="frame" x="16" y="313.5" width="120" height="19"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                             <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="16" maxY="0.0"/>
-                            <state key="normal" title="Clear Selection">
-                                <color key="titleColor" red="0.6705882353" green="0.070588235289999995" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
+                            <state key="normal" title="Clear Selection"/>
                             <connections>
+                                <action selector="clearFilter:" destination="pJU-z3-znu" eventType="touchUpInside" id="alh-am-hiJ"/>
                                 <action selector="okClicked" destination="pJU-z3-znu" eventType="touchUpInside" id="iI8-QG-Gu4"/>
                             </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="Row-15-Hqx" firstAttribute="leading" secondItem="gJy-VB-qxI" secondAttribute="leading" constant="10" id="0En-1G-8Yx"/>
+                        <constraint firstItem="Row-15-Hqx" firstAttribute="leading" secondItem="gJy-VB-qxI" secondAttribute="leading" constant="16" id="0En-1G-8Yx"/>
                         <constraint firstItem="Ne5-PN-Y6Y" firstAttribute="top" secondItem="zXt-9Z-pYt" secondAttribute="bottom" constant="4" id="1vY-vr-X94"/>
                         <constraint firstAttribute="bottom" secondItem="cEw-qJ-Uez" secondAttribute="bottom" constant="16" id="4jl-ZZ-sla"/>
                         <constraint firstItem="Row-15-Hqx" firstAttribute="centerY" secondItem="cEw-qJ-Uez" secondAttribute="centerY" id="5Rx-yk-5bq"/>
@@ -236,7 +226,7 @@
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select an Interval" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MZs-fU-9vy">
                             <rect key="frame" x="16" y="36" width="484" height="20"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
