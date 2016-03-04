@@ -219,7 +219,7 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUS-e3-7G8">
+                        <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUS-e3-7G8">
                             <rect key="frame" x="548" y="24" width="44" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="44" id="P2F-wO-hJ4"/>
@@ -234,7 +234,7 @@
                                 <action selector="okClicked" destination="pJU-z3-znu" eventType="touchUpInside" id="k2q-RN-nH6"/>
                             </connections>
                         </button>
-                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ANg-lK-pvh" userLabel="Clear">
+                        <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ANg-lK-pvh" userLabel="Clear">
                             <rect key="frame" x="8" y="24" width="73" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="S7h-78-HMS"/>
@@ -299,6 +299,7 @@
                 <outlet property="calendarHeader" destination="lsM-Pc-xQm" id="2fB-cc-xiD"/>
                 <outlet property="calendarHeaderTopDistance" destination="L67-Ye-PCF" id="8uj-5q-NHd"/>
                 <outlet property="calendarTitleLabel" destination="MZs-fU-9vy" id="285-09-Fya"/>
+                <outlet property="clearButton" destination="ANg-lK-pvh" id="4Vc-r9-sq7"/>
                 <outlet property="downArrow" destination="LGZ-Sa-reH" id="06l-eG-1JG"/>
                 <outlet property="headerCollectionView" destination="PIm-Mg-AAY" id="id3-Zo-isf"/>
                 <outlet property="headerCollectionViewHeight" destination="3iK-bD-Fup" id="IdF-ux-qjn"/>

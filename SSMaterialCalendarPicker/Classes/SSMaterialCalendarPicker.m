@@ -171,8 +171,13 @@ static const NSInteger kDefaultDaysInterval = 364; // the number of days in a ye
 
 - (void)setSingleDateMode:(BOOL)singleDateMode {
     _singleDateMode = singleDateMode;
-    if (singleDateMode) self.okButton.hidden = YES;
-    else self.okButton.hidden = NO;
+    if (singleDateMode) {
+        self.okButton.hidden = YES;
+        self.clearButton.hidden = YES;
+    } else {
+        self.okButton.hidden = NO;
+        self.clearButton.hidden = NO;
+    }
 }
 
 #pragma mark - Open/Close Calendar

@@ -24,6 +24,7 @@
 // Default value is "WARNING: Interval unavailable!"
 @property (strong, nonatomic) NSString *disabledIntervalWarning;
 @property (weak, nonatomic) IBOutlet UIButton *okButton;
+@property (weak, nonatomic) IBOutlet UIButton *clearButton;
 
 #pragma mark Interaction Properties:
 
